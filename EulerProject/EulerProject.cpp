@@ -1,14 +1,18 @@
 ﻿#include "pch.h"
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 int multipleSum(int in1, int in2);
-int evenFibonacciSum(int max);
+// int evenFibonacciSum(int max);
+//int primeFactorization(long long int num);
+//int getRemainder(long long int num, long long int divisor);
 
 int main()
 {
 	std::cout << "multipleSum: " << multipleSum(3,5) << std::endl;
-	std::cout << "fibonacciSum: " << evenFibonacciSum(4000000) << std::endl;
+	// std::cout << "fibonacciSum: " << evenFibonacciSum(4000000) << std::endl;
+	//std::cout << "multipleSum: " << primeFactorization(600851475143) << std::endl;
 }
 
 int multipleSum(int in1, int in2)
@@ -23,7 +27,7 @@ int multipleSum(int in1, int in2)
 
 	return sum;
 }
-
+/*
 int evenFibonacciSum(int max)
 {
 	int fib[max + 2];
@@ -37,19 +41,20 @@ int evenFibonacciSum(int max)
 
 	return fib[max];
 }
-
-int primeFactorization(double num)
+*/
+/*
+int primeFactorization(long long int num)
 {
-  std::vector <double> pFac(num);
+  std::vector <long long int> pFac(num);
 
-  /* loop to find factors, store in array
-     loop factors in array to see if prime
-     sort array to find greatest
-     return */
-  int paramCast = static_cast<int>(num);
-  for(int x = 0; x <= num; x++)
+  // loop to find factors, store in array
+  // loop factors in array to see if prime
+  // sort array to find greatest
+  //  return 
+  //int paramCast = static_cast<int>(num);
+  for(long long int x = 0; x <= num; x++)
   {
-    if(paramCast % x == 0)
+    if(getRemainder(num, x) == 0)
     {
       pFac.push_back(x);
       std::cout << x << std::endl;
@@ -58,3 +63,9 @@ int primeFactorization(double num)
 
   return 0;
 }
+
+int getRemainder(long long int num, long long int divisor)
+{
+	return (num - divisor * (num / divisor));
+}
+*/
