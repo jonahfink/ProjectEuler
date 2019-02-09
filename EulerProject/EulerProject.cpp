@@ -2,17 +2,18 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include <algorithm>
+using namespace std;
 
-int multipleSum(int in1, int in2);
-// int evenFibonacciSum(int max);
-//int primeFactorization(long long int num);
-//int getRemainder(long long int num, long long int divisor);
+//int multipleSum(int in1, int in2);
+//int evenFibonacciSum(int max);
+//int primeFactorization(long long num);
 
 int main()
 {
-	std::cout << "multipleSum: " << multipleSum(3,5) << std::endl;
-	// std::cout << "fibonacciSum: " << evenFibonacciSum(4000000) << std::endl;
-	//std::cout << "multipleSum: " << primeFactorization(600851475143) << std::endl;
+	//std::cout << "multipleSum: " << multipleSum(3,5) << std::endl;
+	//std::cout << "fibonacciSum: " << evenFibonacciSum(4000000) << std::endl;
+	//std::cout << "primeFactors: " << primeFactorization(600851475143) << std::endl;
 }
 
 int multipleSum(int in1, int in2)
@@ -27,45 +28,73 @@ int multipleSum(int in1, int in2)
 
 	return sum;
 }
-/*
+
 int evenFibonacciSum(int max)
 {
-	int fib[max + 2];
-	int i;
+	std::vector<int> fib;
+	int evenSum = 0;
 
-	fib[0] = 0;
-	fib[1] = 1;
-
-	for (i = 2; i <= max; i++)
-		fib[i] = fib[i - 1] + fib[i - 2];
-
-	return fib[max];
+	fib.push_back(0);
+	fib.push_back(1);
+	std::cout << fib.size();
+	for (int i = fib.size(); fib[i-1] <= max; i++)
+		fib.push_back( fib[i - 1] + fib[i - 2]);
+	for (int x = 0; x < (int)fib.size(); x++)
+		if (fib[x] % 2 == 0)
+			evenSum += fib[x];
+	return evenSum;
 }
-*/
-/*
-int primeFactorization(long long int num)
+
+
+int primeFactorization(long long  num)
 {
-  std::vector <long long int> pFac(num);
-
-  // loop to find factors, store in array
-  // loop factors in array to see if prime
-  // sort array to find greatest
-  //  return 
-  //int paramCast = static_cast<int>(num);
-  for(long long int x = 0; x <= num; x++)
-  {
-    if(getRemainder(num, x) == 0)
-    {
-      pFac.push_back(x);
-      std::cout << x << std::endl;
-    }
-  }
-
+	/*
+	std::vector<long long> pFac;
+	for (long long x = 1; x < sqrt(num); x++)
+		if (num % x == 0)
+		{
+			pFac.push_back(x);
+			pFac.push_back(num / x);
+		}
+	std::sort(pFac.begin(), pFac.end());
+	bool notPrime = true;
+	for (int x = pFac.size()-1; x > 0; x--)
+	{
+		for (long long y = 2; y < sqrt(pFac[x]); y++)
+			if (pFac[x] % y == 0)
+			{
+				notPrime = false; 
+				break;
+			}
+		if (notPrime)
+			return pFac[x];
+		else
+			notPrime = true;
+	}
   return 0;
+	*/
+	
+	bool primeFactor = true;
+	for (long long x = sqrt(num); x > 0; x--)
+	{
+		if (num % x == 0)
+		{
+			for (long long y = 2; y < sqrt(x); y++)
+			{
+				if (x % y == 0)
+				{
+					primeFactor = false;
+					break;
+				}
+			}
+			if (!primeFactor)
+			{
+				primeFactor = true;
+				continue;
+			}
+			return x;
+		}	
+	}
+	return 0;
+	
 }
-
-int getRemainder(long long int num, long long int divisor)
-{
-	return (num - divisor * (num / divisor));
-}
-*/

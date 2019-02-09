@@ -1,4 +1,4 @@
 ﻿  EulerProject.cpp
-c:\users\jonah\source\repos\eulerproject\eulerproject\eulerproject.cpp(47): warning C4244: 'argument': conversion from '__int64' to 'const unsigned int', possible loss of data
-c:\users\jonah\source\repos\eulerproject\eulerproject\eulerproject.cpp(68): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
+c:\users\jonah\source\repos\eulerproject\eulerproject\eulerproject.cpp(79): warning C4244: 'initializing': conversion from 'double' to '__int64', possible loss of data
+c:\users\jonah\source\repos\eulerproject\eulerproject\eulerproject.cpp(96): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
   EulerProject.vcxproj -> C:\Users\Jonah\source\repos\EulerProject\Debug\EulerProject.exe
